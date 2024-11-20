@@ -6,11 +6,11 @@ public class Revista extends MaterialBiblioteca implements Prestamo{
 	private boolean isPrestado;
 	private String nombreUsuario;
 	
-	public Revista(String titulo, String añoPublicacion, int numeroPaginas, String numeroEdicion, boolean isPrestado, String nombreUsuario) {
-		super(titulo, añoPublicacion, numeroPaginas);
+	public Revista(String titulo, String aÃ±oPublicacion, int numeroPaginas, String numeroEdicion) {
+		super(titulo, aÃ±oPublicacion, numeroPaginas);
 		this.numeroEdicion = numeroEdicion;
-		this.isPrestado = isPrestado;
-		this.nombreUsuario = nombreUsuario;
+		this.isPrestado = false;
+		this.nombreUsuario = "";
 	}
 	@Override
 	public double calcularMultas(int diasRetraso){
@@ -26,9 +26,14 @@ public class Revista extends MaterialBiblioteca implements Prestamo{
 	}
 	
 	@Override
-	public void prestar(String nombreUsuario) {
-		this.isPrestado = true;
-		this.nombreUsuario = nombreUsuario;
+	public boolean prestar(String nombreUsuario) {
+		if(this.isPrestado = true) {
+			return false;
+		}else {
+			this.isPrestado = true;
+			this.nombreUsuario = nombreUsuario;
+			return true;
+		}
 	}
 	
 	@Override

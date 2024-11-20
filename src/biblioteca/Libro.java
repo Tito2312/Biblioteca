@@ -12,9 +12,14 @@ public class Libro extends MaterialBiblioteca implements Prestamo{
 	}
 	
 	@Override
-	public void prestar(String nombreUsuario) {
-		this.isPrestado = true;
-		this.nombreUsuario = nombreUsuario;
+	public boolean prestar(String nombreUsuario) {
+		if(this.isPrestado = true) {
+			return false;
+		}else {
+			this.isPrestado = true;
+			this.nombreUsuario = nombreUsuario;
+			return true;
+		}
 	}
 	
 	@Override
@@ -31,12 +36,11 @@ public class Libro extends MaterialBiblioteca implements Prestamo{
 		this.autor = autor;
 	}
 
-	public Libro(String titulo, String añoPublicacion, int numeroPaginas, String autor, double multa,
-			boolean isPrestado, String nombreUsuario) {
-		super(titulo, añoPublicacion, numeroPaginas);
+	public Libro(String titulo, String aÃ±oPublicacion, int numeroPaginas, String autor) {
+		super(titulo, aÃ±oPublicacion, numeroPaginas);
 		this.autor = autor;
-		this.isPrestado = isPrestado;
-		this.nombreUsuario = nombreUsuario;
+		this.isPrestado = false;
+		this.nombreUsuario = "";
 	}
 
 	public boolean isPrestado() {

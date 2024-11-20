@@ -3,10 +3,12 @@ package biblioteca;
 import java.util.ArrayList;
 
 public class Biblioteca {
+	private String nombre;
 	private ArrayList<MaterialBiblioteca> listaMateriales;
 
-	public Biblioteca() {
+	public Biblioteca(String nombre) {
 		this.listaMateriales = new ArrayList<>();
+		this.nombre = nombre;
 	}
 
 	public ArrayList<MaterialBiblioteca> getListaMateriales() {
@@ -17,26 +19,40 @@ public class Biblioteca {
 		this.listaMateriales = listaMateriales;
 	}
 	
-	public void agregarMateriales(MaterialBiblioteca material) {
-		this.listaMateriales.add(material);
+	public void agregarLibros(Libro libro) {
+		this.listaMateriales.add(libro);
+	}
+	public void agregarRevistas(Revista revista) {
+		this.listaMateriales.add(revista);
 	}
 	
-	public void prestarMaterial(String titulo, String nombreUsuario) {
+	public boolean prestarMaterial(String titulo, String nombreUsuario) {
 		for (MaterialBiblioteca materialBiblioteca : listaMateriales) {
 			if(materialBiblioteca.getTitulo().equals(titulo)) {
 				if (materialBiblioteca instanceof Libro) {
 					Libro libro = (Libro) materialBiblioteca;
 					if(libro.isPrestado() == false) {
-						libro.prestar(nombreUsuario);						
+						if(libro.prestar(nombreUsuario) == false){
+							return false;
+						}else {
+							return true;
+						}
 					}
 				}else if(materialBiblioteca instanceof Libro) {
 					Revista revista = (Revista) materialBiblioteca;
 					if(revista.isPrestado() == false) {
-						revista.prestar(nombreUsuario);						
+						if(revista.isPrestado() == false) {
+							if(revista.prestar(nombreUsuario) == false){
+								return false;
+							}else {
+								return true;
+							}
+						}					
 					}
 				}
 			}
 		}
+		return false;
 	}
 	public void devolverMaterial(String titulo, int diasRetraso) {
 		for (MaterialBiblioteca materialBiblioteca : listaMateriales) {
@@ -52,6 +68,14 @@ public class Biblioteca {
 				}
 			}
 		}
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 }

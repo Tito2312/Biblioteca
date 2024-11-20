@@ -2,20 +2,20 @@ package biblioteca;
 
 public abstract class MaterialBiblioteca {
 		private String titulo;
-		private String añoPublicacion;
+		private String aÃ±oPublicacion;
 		private int numeroPaginas;
 		
 		
-		public MaterialBiblioteca(String titulo, String añoPublicacion, int numeroPaginas) {
+		public MaterialBiblioteca(String titulo, String aÃ±oPublicacion, int numeroPaginas) {
 			this.titulo = titulo;
-			this.añoPublicacion = añoPublicacion;
+			this.aÃ±oPublicacion = aÃ±oPublicacion;
 			this.numeroPaginas = numeroPaginas;
 		}
 
 		public abstract double calcularMultas(int diasRetraso);
 
 		public String getResumen() {
-			return "MaterialBiblioteca [titulo=" + titulo + ", añoPublicacion=" + añoPublicacion + ", numeroPaginas="
+			return "MaterialBiblioteca [titulo=" + titulo + ", aï¿½oPublicacion=" + aÃ±oPublicacion + ", numeroPaginas="
 					+ numeroPaginas + "]";
 		}
 
@@ -27,12 +27,12 @@ public abstract class MaterialBiblioteca {
 			this.titulo = titulo;
 		}
 
-		public String getAñoPublicacion() {
-			return añoPublicacion;
+		public String getAÃ±oPublicacion() {
+			return aÃ±oPublicacion;
 		}
 
-		public void setAñoPublicacion(String añoPublicacion) {
-			this.añoPublicacion = añoPublicacion;
+		public void setAÃ±oPublicacion(String aÃ±oPublicacion) {
+			this.aÃ±oPublicacion = aÃ±oPublicacion;
 		}
 
 		public int getNumeroPaginas() {
